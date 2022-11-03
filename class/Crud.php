@@ -6,7 +6,7 @@ class Crud extends PDO {
         parent::__construct('mysql:host=localhost; dbname=wa_tp1; port=3306; charset=utf8', 'root', '');
     }
 
-    public function select($table, $field='id', $order='ASC' ){
+    public function select($table, $field, $order='ASC' ){
         $sql = "SELECT * FROM $table ORDER BY $field $order";
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();

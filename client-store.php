@@ -6,4 +6,4 @@ $insert = $Crud->insert('wa_client', $_POST);
 
 $insert;
 
-header('Location: client-index.php');
+header('Location: index.php');
