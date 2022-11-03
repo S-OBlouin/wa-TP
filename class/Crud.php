@@ -63,7 +63,7 @@ class Crud extends PDO {
         }
     }
 
-    public function delete($table, $id, $champId = 'id', $url='client-index.php'){
+    public function delete($table, $id, $champId = 'id', $url='../index.php'){
 
         $sql = "DELETE FROM $table WHERE $champId = :$champId";
 

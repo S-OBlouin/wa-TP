@@ -10,6 +10,9 @@
     </style>
 </head>
 <body>
+    <nav>
+        <a href="../index.php">Index</a>
+    </nav>
     <main>
         <h2>Saisir</h2>
         <form action="client-store.php" method="post">

@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once "class/Crud.php";
+    require_once "Crud.php";
     $Crud = new Crud;
     $client = $Crud->selectId('wa_client', $id);
     extract($client);
@@ -24,7 +24,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
     <nav>
-        <a href="index.php">Index</a>
+        <a href="../index.php">Index</a>
     </nav>
 <main>
     <h2>Modifier</h2>

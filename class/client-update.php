@@ -1,5 +1,5 @@
 <?php
-require_once 'class/Crud.php';
+require_once 'Crud.php';
 
 $Crud = new Crud;
 $update = $Crud->update('wa_client', $_POST);

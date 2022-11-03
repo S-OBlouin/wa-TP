@@ -20,6 +20,10 @@ $auteur = $Crud->select("wa_auteur", "nom_auteur", "DESC");
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <a href="index.php">Index</a>
+        <a href="./class/client-create.php">Create User</a>
+    </nav>
     <main>
         <h1>Liste de clients, livres, editeurs et auteurs</h1>
         <table>
@@ -38,7 +42,7 @@ $auteur = $Crud->select("wa_auteur", "nom_auteur", "DESC");
                         <td><?php echo $row['nom_client'] ?></td>
                         <td><?php echo $row['adresse_client'] ?></td>
                         <td><?php echo $row['tel_client'] ?></td>
-                        <td><a href="client-show.php?id=<?php echo $row['id'] ?>">Profile</a></td>
+                        <td><a href="./class/client-show.php?id=<?php echo $row['id'] ?>">Profile</a></td>
                     </tr>
                 <?php       
                     }
