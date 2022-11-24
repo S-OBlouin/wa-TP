@@ -4,4 +4,15 @@ l'inconvénient si cela vous cause plus de problème.
 
 Le projet est une librairie qui enregistre les informations sur des livres, auteurs, éditeurs et clients qui font affaire avec elle. On 
 peut ajouter, modifier ou effacer de l'information (seulement certains peuvent être effacé). L'information est affiché dans plusieurs 
+<<<<<<< Updated upstream
 tableaux selon l'information cherché.
+=======
+tableaux selon l'information cherché.
+
+user=e1580595
+password=euWSa5p53iWoRSVqMk0M
+
+https://e1580595.webdev.cmaisonneuve.qc.ca/web21622/tp2/
+
+https://github.com/S-OBlouin/wa-TP dans la sectoion tp2
+>>>>>>> Stashed changes
