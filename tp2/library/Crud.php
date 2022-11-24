@@ -3,7 +3,7 @@
 abstract class Crud extends PDO {
 
     public function __construct(){
-        parent::__construct('mysql:host=localhost; dbname=wa_tp1; port=3306; charset=utf8', 'root', '');
+        parent::__construct('mysql:host=localhost; dbname=e1580595; port=3306; charset=utf8', 'e1580595', 'euWSa5p53iWoRSVqMk0M');
     }
 
     public function select($champ='id', $order='ASC' ){
