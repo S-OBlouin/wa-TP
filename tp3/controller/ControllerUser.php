@@ -49,7 +49,6 @@ class ControllerUser{
     }
 
     public function auth(){
-        print_r($_POST);
         $validation = new Validation;
         extract($_POST);
         $validation->name('username_user')->value($username_user)->pattern('email')->required()->max(50);
