@@ -1,9 +1,7 @@
 {{ include('header.php', {title: 'Client', pageHeader: 'Liste de client'})}}
     <main>
         <section>
-        {% if session.privilege_id == 1 %}
-            <a href="{{ path }}client/create" class="btn">Ajouter</a>
-        {% endif %}   
+            <a href="{{ path }}client/create">Ajouter</a>
             <table>
                 <thead>
                     <tr>

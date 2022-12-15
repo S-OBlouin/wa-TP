@@ -52,9 +52,9 @@ class ControllerLivre{
         $validation = new Validation;
         
         extract($_POST);
-        $validation->name('nom_livres')->value($nom_livres)->pattern('alpha')->required()->max(80);
+        $validation->name('nom_livres')->value($nom_livres)->pattern('words')->required()->max(80);
         $validation->name('description_livres')->value($description_livres)->pattern('text')->max(1000);
-        $validation->name('prix_livres')->value($prix_livres)->pattern('float')->required();
+        $validation->name('prix_livres')->value($prix_livres)->pattern('int')->required();
         $validation->name('edition_livres')->value($edition_livres)->pattern('int');
         
         
@@ -66,7 +66,7 @@ class ControllerLivre{
             $errors = $validation->displayErrors();
             $livre = new ModelLivre;
             $selectLivre = $livre->select($livre);
-            twig::render('livre-edit.php', ['errors'=>$errors, 'livre' => $_POST]);
+            twig::render('livre-edit.php', ['errors'=>$errors, 'data' => $_POST]);
         }
     }
     

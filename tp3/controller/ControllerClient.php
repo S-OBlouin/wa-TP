@@ -16,10 +16,26 @@ class ControllerClient{
     }
  
     public function store(){
-        $client = new ModelClient;
-        $insert = $client->insert($_POST);
- 
-        requirePage::redirectPage('client');
+        
+        $validation = new Validation;
+        
+        extract($_POST);
+        $validation->name('username_client')->value($username_client)->pattern('email')->required()->max(255);
+        $validation->name('nom_client')->value($nom_client)->pattern('alpha')->required()->max(40);
+        $validation->name('adresse_client')->value($adresse_client)->pattern('address')->required();
+        $validation->name('courriel_client')->value($courriel_client)->pattern('email')->required();
+        $validation->name('tel_client')->value($tel_client)->pattern('tel')->required();
+        
+        
+        if($validation->isSuccess()){
+            $client = new ModelClient;
+            $insert = $client->insert($_POST);
+     
+            requirePage::redirectPage('client');
+        }else{
+            $errors = $validation->displayErrors();
+            twig::render('client-create.php', ['errors'=>$errors, 'data'=>$_POST]);
+        }
     }
  
     public function show($id){
@@ -35,9 +51,26 @@ class ControllerClient{
     }
  
     public function update(){
-        $client = new ModelClient;
-        $update = $client->update($_POST);
-        RequirePage::redirectPage('client/show/'.$_POST['id']);
+        
+        $validation = new Validation;
+        
+        extract($_POST);
+        $validation->name('nom_client')->value($nom_client)->pattern('alpha')->required()->max(40);
+        $validation->name('adresse_client')->value($adresse_client)->pattern('address')->required();
+        $validation->name('courriel_client')->value($courriel_client)->pattern('email')->required();
+        $validation->name('tel_client')->value($tel_client)->pattern('tel')->required();
+        
+        
+        if($validation->isSuccess()){
+            $client = new ModelClient;
+            $update = $client->update($_POST);
+            RequirePage::redirectPage('client/show/'.$_POST['id']);
+        }else{
+            $errors = $validation->displayErrors();
+            $client = new ModelClient;
+            $select = $client->select($client);
+            twig::render('client-edit.php', ['errors'=>$errors, 'data'=>$_POST]);
+        }
     }
     
     public function delete(){

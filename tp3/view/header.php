@@ -9,6 +9,7 @@
 </head>
 <body>
     <nav>
+        <a href="{{ path }}home/index">Home</a>
         <a href="{{ path }}client/index">Client</a>
         <a href="{{ path }}livre/index">Livre</a>
         <a href="{{ path }}auteur/index">Auteur</a>

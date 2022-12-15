@@ -16,10 +16,23 @@ class ControllerAuteur{
     }
  
     public function store(){
-        $auteur = new ModelAuteur;
-        $insert = $auteur->insert($_POST);
- 
-        requirePage::redirectPage('auteur');
+        
+        $validation = new Validation;
+        
+        extract($_POST);
+        $validation->name('nom_auteur')->value($nom_auteur)->pattern('alpha')->required()->max(50);
+        $validation->name('naissance_auteur')->value($naissance_auteur)->pattern('date_ymd')->required();
+
+        
+        if($validation->isSuccess()){
+            $auteur = new ModelAuteur;
+            $insert = $auteur->insert($_POST);
+     
+            requirePage::redirectPage('auteur');
+        }else{
+            $errors = $validation->displayErrors();
+            twig::render('auteur-create.php', ['errors'=>$errors, 'data'=>$_POST]);
+        }
     }
  
     public function show($id){
@@ -35,8 +48,23 @@ class ControllerAuteur{
     }
  
     public function update(){
-        $auteur = new ModelAuteur;
-        $update = $auteur->update($_POST);
-        RequirePage::redirectPage('auteur/show/'.$_POST['id']);
+        
+        $validation = new Validation;
+        
+        extract($_POST);
+        $validation->name('nom_auteur')->value($nom_auteur)->pattern('alpha')->required()->max(50);
+        $validation->name('naissance_auteur')->value($naissance_auteur)->pattern('date_ymd')->required();
+        
+        
+        if($validation->isSuccess()){
+            $auteur = new ModelAuteur;
+            $update = $auteur->update($_POST);
+            RequirePage::redirectPage('auteur/show/'.$_POST['id']);
+        }else{
+            $errors = $validation->displayErrors();
+            $auteur = new ModelAuteur;
+            $select = $auteur->select($auteur);
+            twig::render('auteur-create.php', ['errors'=>$errors, 'data'=>$_POST]);
+        }
     }
 }
