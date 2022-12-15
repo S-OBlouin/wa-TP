@@ -25,7 +25,7 @@ class ControllerHome{
         $mail->Port = 465;
         $mail->SMTPAuth = true;
         $mail->Username = 'soblouin2244@gmail.com';
-        $mail->Password = 'cvdsofogyuivxkco';
+        $mail->Password = '';
         $mail->SMTPSecure = 'ssl';
 
         $mail->setFrom('soblouin2244@gmail.com');
