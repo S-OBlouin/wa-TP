@@ -1,7 +1,9 @@
 {{ include('header.php', {title: 'Auteur', pageHeader: 'Liste Auteur'})}}
 <main>
     <section>
-        <a href="{{ path }}auteur/create">Ajouter</a>
+        {% if session.privilege_id == 1 %}
+            <a href="{{ path }}auteur/create">Ajouter</a>
+        {% endif %}   
         <table>
             <thead>
                 <tr>
