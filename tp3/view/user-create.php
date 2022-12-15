@@ -10,7 +10,6 @@
             <label>Password 
                 <input type="password" name="password">
             </label>
-            <!-- {%  if session.privilege_id == 1 %} -->
             <label>Privilege 
                 <select name="privilege_id">
                     <option value="">Select</option>
@@ -19,7 +18,6 @@
                     {% endfor %}
                 </select>
             </label>
-            <!-- {% endif %} -->
             <input type="submit" value="Sauvegarder">
         </form>
     </main>
